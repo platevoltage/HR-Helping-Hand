@@ -9,6 +9,11 @@ describe("Employee" , () => {
             expect(employee.id).toEqual(126);
             expect(employee.email).toEqual("johndoe@email.com");
         });
+        it("should throw an error if provided no arguments", () => {
+            const employee = () => new Employee();
+
+            expect(employee).toThrow();
+        });
     });
 
 

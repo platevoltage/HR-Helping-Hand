@@ -1,6 +1,16 @@
 //Employee class
 
 function Employee(name, id, email) {
+    if (typeof name !== 'string') {
+        throw new Error('name must be a string');
+    }
+    if (typeof id !== 'number') {
+        throw new Error('id must be a number');
+    }
+    if (typeof email !== 'string') {
+        throw new Error('email must be a string');
+    }
+
     this.name = name;
     this.id = id;
     this.email = email;
