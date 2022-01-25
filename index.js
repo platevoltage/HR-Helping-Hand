@@ -36,3 +36,6 @@ Employee.prototype.intern = function(school) {
     this.getRole = function() { return "Intern" };
     
 } 
+
+
+module.exports = Employee;
