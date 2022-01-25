@@ -1,0 +1,26 @@
+{
+  "name": "hr-helping-hand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antieatingactivist/HR-Helping-Hand.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antieatingactivist/HR-Helping-Hand/issues"
+  },
+  "homepage": "https://github.com/antieatingactivist/HR-Helping-Hand#readme",
+  "dependencies": {
+    "inquirer" : "latest"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
