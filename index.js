@@ -7,9 +7,10 @@ function Employee(name, id, email) {
     if (typeof id !== 'number') {
         throw new Error('id must be a number');
     }
-    if (typeof email !== 'string') {
-        throw new Error('email must be a string');
+    if (typeof email !== 'string' || !(email.includes('@')) || !(email.includes('.'))) {
+        throw new Error('email must be a valid email address');
     }
+    
 
     this.name = name;
     this.id = id;
