@@ -29,11 +29,23 @@ describe("Employee" , () => {
 
             expect(employee).toThrow();
         });
+        it("should throw an error age is not a positive number", () => {
+            const employee = () => new Employee("Jonathan", -2 , "johndoe@email.com");
+
+            expect(employee).toThrow();
+        });
         it("should throw an error if email isnt valid format", () => {
             const employee = () => new Employee("Jonathan", 126, "johndoe&email,com");
 
             expect(employee).toThrow();
         });
+    });
+    describe("getRole", () => {
+
+        const employee = new Employee("Jonathan", 126, "johndoe@email.com");
+
+        expect(employee.getRole()).toEqual("Employee");
+
     });
 
 
