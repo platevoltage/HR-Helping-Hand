@@ -8,7 +8,7 @@ var team = [];
 
 console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Welcome to the HR Helping Hand! We will start with you, the Team Manager\n -- Please enter your name\n");
 
-team.push(createManager());
+createManager();
 // nextEmployeeType();
 // console.log(manager);
 function createManager() {
@@ -37,15 +37,19 @@ function createManager() {
         .then((response) => {
             // console.log(response);
             const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.office));
-            // console.log(manager);
+            console.log(manager);
+            
             // return manager;
+            team.push(manager);
             nextEmployeeType();
-            return manager;
+
+            
         });      
 }
 
 function nextEmployeeType() {
     console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Would you like to add another employee to your team?\n");
+    console.log(team);
     inquirer
         .prompt([
             {
@@ -59,15 +63,16 @@ function nextEmployeeType() {
             console.log(response.nextEmployee);
             switch (response.nextEmployee) {
                 case 'Add an Intern': {
-                    team.push(createIntern());
+                    createIntern();
                     break;
                 }
                 case 'Add an Engineer': {
-                    team.push(createEngineer());
+                    createEngineer();
                     break;
                 }
                 default: {
-                    console.log('restart');
+                    // console.log('restart');
+                    buildHTML();
                 }
                 
             }
@@ -103,8 +108,9 @@ function createEngineer() {
             const engineer = new Engineer(response.name, parseInt(response.id), response.email, response.github);
             // console.log(manager);
             // return manager;
+            team.push(engineer);
             nextEmployeeType();
-            return engineer;
+            
         });  
 }
 
@@ -136,7 +142,47 @@ function createIntern() {
             const intern = new Intern(response.name, parseInt(response.id), response.email, response.school);
             // console.log(manager);
             // return manager;
+            team.push(intern);
             nextEmployeeType();
-            return intern;
+            
         });  
+}
+
+
+function buildHTML() {
+
+    console.log(team);
+    let innerHTML = [];
+
+
+    for (let i of team) {
+        innerHTML.push(buildCard(i));
+    }
+
+
+    let htmlFile = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+${innerHTML.join('\n')}
+</body>
+</html>     
+    `;
+
+    console.log(htmlFile);
+}
+
+function buildCard(teamMember) {
+    let card = `\t<div>${teamMember.getRole()}</div>`;
+
+
+
+    return card;
 }
