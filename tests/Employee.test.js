@@ -1,4 +1,4 @@
-const Employee = require("../index");
+const Employee = require("../lib/Employee");
 
 describe("Employee" , () => {
     describe("Initialization", () => {
@@ -10,9 +10,9 @@ describe("Employee" , () => {
             expect(employee.email).toEqual("johndoe@email.com");
         });
         it("should throw an error if provided no arguments", () => {
-            const employee = () => new Employee();
+            const cb = () => new Employee();
 
-            expect(employee).toThrow();
+            expect(cb).toThrow();
         });
         it("should throw an error if provided no age", () => {
             const employee = () => new Employee("Jonathan");

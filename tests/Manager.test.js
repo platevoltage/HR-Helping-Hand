@@ -1,24 +1,16 @@
-const { is } = require("@babel/types");
-const Employee = require("../index");
 
-describe("Employee" , () => {
+// const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
+
+describe("Manager" , () => {
     describe("Initialization", () => {
-        it("should cause getRole to return Manager", () => {
-            const employee = new Employee("Jonathan", 126, "johndoe@email.com");
-            employee.manager(123);
-            expect(employee.getRole()).toEqual("Manager");
-        });
-        it("should cause .officeNumber to equal input", () => {
-            const employee = new Employee("Jonathan", 126, "johndoe@email.com");
-            employee.manager(123);
-            expect(employee.officeNumber).toEqual(123);
-        });
-        it("should throw an error if no argument", () => {
-            const employee = new Employee("Jonathan", 126, "johndoe@email.com");
-            employee.manager();
-            expect(employee).toThrow();
-        });
-    });
+        it("should cause name to return Jonathan", () => {
+            const manager = new Manager("Jonathan", 126, "johndoe@email.com", 123);
 
+            expect(manager.role).toEqual("Manager");
+            expect(manager.officeNumber).toEqual(123);
+        });
+
+    });
     
-})
+});
