@@ -22,5 +22,12 @@ describe("Engineer" , () => {
             expect(manager.getRole()).toEqual("Engineer");
         });
     });
+    describe("getGithub", () => {
+        it("getGithub should return octocat", () => {
+            const manager = new Engineer("Jonathan", 126, "johndoe@email.com", "octocat");
+
+            expect(manager.getGithub()).toEqual("octocat");
+        });
+    });
     
 });
