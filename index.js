@@ -177,12 +177,25 @@ ${innerHTML.join('\n')}
     `;
 
     console.log(htmlFile);
+    writeFile(htmlFile);
+    
 }
 
 function buildCard(teamMember) {
-    let card = `\t<div>${teamMember.getRole()}</div>`;
+    let card = `
+    <div>
+        <h2>${teamMember.name}</h2>
+        <p>${teamMember.role}</p>
+        <p>${teamMember.id}</p>
+        <p>${teamMember.email}</p>
+    </div>    
+    `;
 
 
 
     return card;
+}
+
+function writeFile(htmlFile) {
+    fs.writeFile("./dist/index.html", htmlFile, (err) => err ? console.log(err) : console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Successfully generated index.html in the 'dist/' directory."));
 }

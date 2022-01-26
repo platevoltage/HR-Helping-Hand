@@ -1,0 +1,13 @@
+body {
+    background-color : #000000;
+    display: flex;
+}
+
+div {
+    color : #000000;
+    background-color : #dddddd;
+    width : 200px;
+    height : 300px;
+    margin : 20px;
+    padding : 10px;
+}
