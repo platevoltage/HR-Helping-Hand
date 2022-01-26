@@ -10,6 +10,11 @@ describe("Intern", () => {
 
 
         });
+        it("should throw an error if provided no school", () => {
+            const cb = () => new Manager("Jonathan", 126, "johndoe@email.com", "Starfleet Academy");
+
+            expect(cb).toThrow();
+        });
     });
     describe("getRole", () => {
         it("getRole should return Intern", () => {
