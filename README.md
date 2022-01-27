@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-a readme.md generator using node.js. Using inquirer.js, you are prompted to imput all of the information to assemble a readme in markdown format ready for GitHub.
+A tool to help a product manager build an html representing their team using node.js and inquirer.
 
 
 ## Usage
