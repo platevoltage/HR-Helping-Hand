@@ -5,14 +5,12 @@ const Manager = require("./lib/Manager");
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-
 var team = [];
 
 console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Welcome to the HR Helping Hand! We will start with you, the Team Manager\n -- Please enter your name\n");
 
 createManager();
-// nextEmployeeType();
-// console.log(manager);
+
 function createManager() {
     inquirer
         .prompt([
@@ -39,9 +37,7 @@ function createManager() {
         .then((response) => {
             // console.log(response);
             const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.office));
-            // console.log(manager);
-            
-            // return manager;
+
             team.push(manager);
             nextEmployeeType();
 
@@ -51,7 +47,7 @@ function createManager() {
 
 function nextEmployeeType() {
     console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Would you like to add another employee to your team?\n");
-    // console.log(team);
+
     inquirer
         .prompt([
             {
@@ -73,7 +69,6 @@ function nextEmployeeType() {
                     break;
                 }
                 default: {
-                    // console.log('restart');
                     buildHTML();
                 }
                 
@@ -106,10 +101,8 @@ function createEngineer() {
 
         ])
         .then((response) => {
-            // console.log(response);
+
             const engineer = new Engineer(response.name, parseInt(response.id), response.email, response.github);
-            // console.log(manager);
-            // return manager;
             team.push(engineer);
             nextEmployeeType();
             
@@ -140,10 +133,8 @@ function createIntern() {
 
         ])
         .then((response) => {
-            // console.log(response);
+
             const intern = new Intern(response.name, parseInt(response.id), response.email, response.school);
-            // console.log(manager);
-            // return manager;
             team.push(intern);
             nextEmployeeType();
             
@@ -153,15 +144,11 @@ function createIntern() {
 
 function buildHTML() {
 
-    // console.log(team);
     let innerHTML = [];
-
 
     for (let i of team) {
         innerHTML.push(buildCard(i));
     }
-
-
 
     let htmlFile = `
 <!DOCTYPE html>
@@ -188,24 +175,6 @@ ${innerHTML.join('\n')}
 }
 
 function buildCard(teamMember) {
-
-    const customTraits = {
-        'Manager' : {
-            'icon' : '<i class="bi bi-megaphone"></i>',
-            'trait' : `<span>Office #: </span>${teamMember.officeNumber}`  
-            },
-        'Engineer' : {
-            'icon' : '<i class="bi bi-gear-wide-connected"></i>',
-            'trait' : `<span>GitHub username: </span><a href="https://github.com/${teamMember.github}/" target="_blank" rel="noopener noreferrer">${teamMember.github}</a>`  
-            },
-        'Intern' : {
-            'icon' : '<i class="bi bi-mortarboard"></i>',
-            'trait' : `<span>School: </span>${teamMember.school}` 
-            }
-    }
-
-
-
 
     let card = `
     <div class="card">
