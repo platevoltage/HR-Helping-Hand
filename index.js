@@ -169,6 +169,7 @@ function buildHTML() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 <body>
 ${innerHTML.join('\n')}
@@ -182,17 +183,29 @@ ${innerHTML.join('\n')}
 }
 
 function buildCard(teamMember) {
+
+
+
     let card = `
-    <div>
-        <h2>${teamMember.name}</h2>
-        <p>${teamMember.role}</p>
-        <p>${teamMember.id}</p>
-        <p>${teamMember.email}</p>
-    </div>    
+    <div class="card">
+        <div class="title invisible">
+            <h2>${teamMember.name}</h2>
+            <h3>${teamMember.role}</h3>
+        </div>
+
+        <div class="contents">
+            
+            <div class="invisible">
+                <p><span>Employee ID: </span>${teamMember.id}</p>
+                <p><span>E-Mail: </span>${teamMember.email}</p>
+            </div> 
+            <div class="invisible icon">
+                <i class="bi bi-megaphone"></i>
+            </div>      
+        </div>
+    </div>  
+    
     `;
-
-
-
     return card;
 }
 
