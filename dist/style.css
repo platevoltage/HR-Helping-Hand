@@ -13,6 +13,7 @@ header {
     background-color : #ffffff44;
     border: 1px solid #00000044;
     padding: 0 0 0 20px;
+    margin: 0 0 20px 0;
     box-shadow: 10px 10px 10px #00000033;
 
 }
@@ -33,7 +34,7 @@ div {
     /* border-radius: 5px; */
     width : 50%;
     height : 200px;
-    margin : 20px;
+    margin : 20px 0 0 20px;
     padding : 10px;
     box-shadow: 10px 10px 10px #00000033;
 

@@ -192,7 +192,7 @@ function buildCard(teamMember) {
             },
         'Engineer' : {
             'icon' : '<i class="bi bi-gear-wide-connected"></i>',
-            'trait' : `<span>GitHub username: </span>${teamMember.github}`  
+            'trait' : `<span>GitHub username: </span><a href="https://github.com/${teamMember.github}/" target="_blank" rel="noopener noreferrer">${teamMember.github}</a>`  
             },
         'Intern' : {
             'icon' : '<i class="bi bi-mortarboard"></i>',
