@@ -169,8 +169,8 @@ ${innerHTML.join('\n')}
     `;
 
   
-    writeFile(htmlFile);
-    copyStyleSheet();
+    readDirectory(htmlFile);
+    
     
 }
 
@@ -206,4 +206,26 @@ function writeFile(htmlFile) {
 
 function copyStyleSheet() {
     fs.copyFile("./src/style.css", "./dist/style.css", (err) => err ? console.log(err) : console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Successfully copied style.css in the 'dist/' directory."));
+}
+
+function readDirectory(htmlFile) {
+    fs.readdir("./dist/", function(err, files) { 
+        if (err) {
+            console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- creating 'dist/' directory");
+            fs.mkdir("./dist", null, function(err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    writeFile(htmlFile);
+                    copyStyleSheet();
+                }
+                
+            });
+        }
+            else {
+            writeFile(htmlFile);
+            copyStyleSheet();
+        }
+    });
+    
 }
