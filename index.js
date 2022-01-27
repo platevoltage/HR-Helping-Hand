@@ -183,6 +183,17 @@ ${innerHTML.join('\n')}
 }
 
 function buildCard(teamMember) {
+    const icons = {
+        'Manager' : '<i class="bi bi-megaphone"></i>',
+        'Engineer' : '<i class="bi bi-gear-wide-connected"></i>',
+        'Intern' : '<i class="bi bi-mortarboard"></i>'
+    }
+    const finalTrait = {
+        'Manager' : `<span>Office #: </span>${teamMember.officeNumber}`,  
+        'Engineer' : `<span>GitHub username: </span>${teamMember.github}`, 
+        'Intern' : `<span>School: </span>${teamMember.school}`
+    }
+
 
 
 
@@ -195,12 +206,13 @@ function buildCard(teamMember) {
 
         <div class="contents">
             
-            <div class="invisible">
+            <div class="invisible info">
                 <p><span>Employee ID: </span>${teamMember.id}</p>
                 <p><span>E-Mail: </span>${teamMember.email}</p>
+                <p>${finalTrait[teamMember.role]}</p>
             </div> 
             <div class="invisible icon">
-                <i class="bi bi-megaphone"></i>
+                ${icons[teamMember.role]}
             </div>      
         </div>
     </div>  
