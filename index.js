@@ -4,6 +4,8 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const fs = require("fs");
 const inquirer = require("inquirer");
+const { func } = require("assert-plus");
+
 var team = [];
 
 console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Welcome to the HR Helping Hand! We will start with you, the Team Manager\n -- Please enter your name\n");
@@ -37,7 +39,7 @@ function createManager() {
         .then((response) => {
             // console.log(response);
             const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.office));
-            console.log(manager);
+            // console.log(manager);
             
             // return manager;
             team.push(manager);
@@ -49,7 +51,7 @@ function createManager() {
 
 function nextEmployeeType() {
     console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Would you like to add another employee to your team?\n");
-    console.log(team);
+    // console.log(team);
     inquirer
         .prompt([
             {
@@ -151,13 +153,14 @@ function createIntern() {
 
 function buildHTML() {
 
-    console.log(team);
+    // console.log(team);
     let innerHTML = [];
 
 
     for (let i of team) {
         innerHTML.push(buildCard(i));
     }
+
 
 
     let htmlFile = `
@@ -178,8 +181,9 @@ ${innerHTML.join('\n')}
 </html>     
     `;
 
-    // console.log(htmlFile);
+  
     writeFile(htmlFile);
+    copyStyleSheet();
     
 }
 
@@ -229,4 +233,8 @@ function buildCard(teamMember) {
 
 function writeFile(htmlFile) {
     fs.writeFile("./dist/index.html", htmlFile, (err) => err ? console.log(err) : console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Successfully generated index.html in the 'dist/' directory."));
+}
+
+function copyStyleSheet() {
+    fs.copyFile("./src/style.css", "./dist/style.css", (err) => err ? console.log(err) : console.log("\x1b[1m\x1b[32m%s\x1b[0m", "\n -- Successfully copied style.css in the 'dist/' directory."));
 }
