@@ -4,7 +4,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { func } = require("assert-plus");
+
 
 var team = [];
 
@@ -219,10 +219,10 @@ function buildCard(teamMember) {
             <div class="invisible info">
                 <p><span>Employee ID: </span>${teamMember.id}</p>
                 <p><span>E-Mail: </span><a href="mailto:${teamMember.email}">${teamMember.email}</a></p>
-                <p>${customTraits[teamMember.role].trait}</p>
+                <p>${teamMember.customTrait}</p>
             </div> 
             <div class="invisible icon">
-                ${customTraits[teamMember.role].icon}
+                ${teamMember.icon}
             </div>      
         </div>
     </div>  
