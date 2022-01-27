@@ -172,6 +172,7 @@ function buildHTML() {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 <body>
+<header><h1>${team[0].name}'s Team</h1></header>
 ${innerHTML.join('\n')}
 </body>
 </html>     

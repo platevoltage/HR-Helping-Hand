@@ -6,6 +6,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0;
+}
+
+header {
+    background-color : #ffffff44;
+    border: 1px solid #00000044;
+    padding: 0 0 0 20px;
+    box-shadow: 10px 10px 10px #00000033;
+
 }
 
 div {
