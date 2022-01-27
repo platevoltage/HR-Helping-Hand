@@ -44,7 +44,13 @@ div {
     font-weight: 700;
 }
 .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
+}
+.info p {
+    margin: 8px;
 }
 
 .title {
@@ -58,6 +64,14 @@ div {
 .invisible {
     background-color : #00000000;
     border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: #00000055;
 }
 
 h2 {

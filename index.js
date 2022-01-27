@@ -177,21 +177,26 @@ ${innerHTML.join('\n')}
 </html>     
     `;
 
-    console.log(htmlFile);
+    // console.log(htmlFile);
     writeFile(htmlFile);
     
 }
 
 function buildCard(teamMember) {
-    const icons = {
-        'Manager' : '<i class="bi bi-megaphone"></i>',
-        'Engineer' : '<i class="bi bi-gear-wide-connected"></i>',
-        'Intern' : '<i class="bi bi-mortarboard"></i>'
-    }
-    const finalTrait = {
-        'Manager' : `<span>Office #: </span>${teamMember.officeNumber}`,  
-        'Engineer' : `<span>GitHub username: </span>${teamMember.github}`, 
-        'Intern' : `<span>School: </span>${teamMember.school}`
+
+    const customTraits = {
+        'Manager' : {
+            'icon' : '<i class="bi bi-megaphone"></i>',
+            'trait' : `<span>Office #: </span>${teamMember.officeNumber}`  
+            },
+        'Engineer' : {
+            'icon' : '<i class="bi bi-gear-wide-connected"></i>',
+            'trait' : `<span>GitHub username: </span>${teamMember.github}`  
+            },
+        'Intern' : {
+            'icon' : '<i class="bi bi-mortarboard"></i>',
+            'trait' : `<span>School: </span>${teamMember.school}` 
+            }
     }
 
 
@@ -208,11 +213,11 @@ function buildCard(teamMember) {
             
             <div class="invisible info">
                 <p><span>Employee ID: </span>${teamMember.id}</p>
-                <p><span>E-Mail: </span>${teamMember.email}</p>
-                <p>${finalTrait[teamMember.role]}</p>
+                <p><span>E-Mail: </span><a href="mailto:${teamMember.email}">${teamMember.email}</a></p>
+                <p>${customTraits[teamMember.role].trait}</p>
             </div> 
             <div class="invisible icon">
-                ${icons[teamMember.role]}
+                ${customTraits[teamMember.role].icon}
             </div>      
         </div>
     </div>  
