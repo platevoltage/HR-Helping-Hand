@@ -3,11 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-A tool to help a product manager build an html representing their team using node.js and inquirer.
+A tool to help a product manager build an html representing their team using node.js and inquirer. The user is prompted with questions about themself, and their team. An html file is generated with cards for each of your team members.
 
 
 ## Usage
-[Watch the demo video](https://antieatingactivist.github.io/README-assembly-line/)
+[Watch the demo video](https://antieatingactivist.github.io/HR-Helping-Hand/)
 
 [node.js](https://nodejs.dev) is required. 
 [Download from web](https://nodejs.dev) -or-
@@ -21,7 +21,7 @@ Ubuntu/Debian `apt-get install nodejs`
 
 - move into the directory
 
-  `cd README-assembly-line`
+  `cd HR-Helping-Hand`
 
 - install dependencies
 
@@ -29,10 +29,13 @@ Ubuntu/Debian `apt-get install nodejs`
 
 - execute script using node
 
-  `node rmal.js`
+  `node index.js`
+  
+- the generated html file and associated stylesheet is generated in the /dist directory
 
 
-<img width="693" alt="Screen Shot 2022-01-23 at 11 37 11 PM" src="https://user-images.githubusercontent.com/1414728/150740919-a672b1f2-be18-414a-b58e-085f3eb0b1eb.png">
+<img width="1262" alt="Screen Shot 2022-01-27 at 9 02 49 PM" src="https://user-images.githubusercontent.com/1414728/151490280-2dfdd4bc-a1e9-4c2e-8745-9ea9f1b62f04.png">
+
 
 ## Built With
 
