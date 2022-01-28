@@ -9,12 +9,24 @@ body {
     margin: 0;
 }
 
+main {
+    margin-top: 100px;
+}
+
 header {
-    background-color : #ffffff44;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    background-color : #52a98aaa;
+ 
     border: 1px solid #00000044;
     padding: 0 0 0 20px;
     margin: 0 0 20px 0;
     box-shadow: 10px 10px 10px #00000033;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1;
 
 }
 
@@ -22,7 +34,9 @@ div {
     background-color : #ffffff44;
     border: 1px solid #00000044;
     border-radius: 5px;
+    /* box-shadow: 20px 20px 20px #00000033; */
 }
+
 
 .card {
     display: flex;
@@ -83,12 +97,15 @@ a {
 a:hover {
     color: #00000055;
 }
-
+h1 {
+    font-size: 2em;
+}
 h2 {
     font-size: 1.6em;
     /* text-align : center; */
     /* height: 20px; */
-    margin: 0 0 0 0;
+    margin: 0 0 0 20px ;
+    padding-bottom: 4px;
     width: 50%;
 
     
@@ -109,5 +126,4 @@ h3 {
     text-align: right;
     margin-right: 10px;
     width: auto;
-    /* background-color: #ffffff44; */
 }

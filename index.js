@@ -163,7 +163,9 @@ function buildHTML() {
 </head>
 <body>
 <header><h1>${team[0].name}'s Team</h1></header>
-${innerHTML.join('\n')}
+    <main>
+    ${innerHTML.join('\n')}
+    </main>
 </body>
 </html>     
     `;
